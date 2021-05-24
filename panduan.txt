@@ -1,0 +1,10 @@
+selamat datang di aplikasi EncKey (encryption key) 
+
+EncKey adalah aplikasi untuk merahasiakan suatu pesan yang dimasukan oleh user dengan cara mengubah susunan
+huruf nya menjadi longkap 5. didalam aplikasi ini nanti akan terdapat menu enkripsi dan dekripsi
+
+menu enkripsi digunakan untuk merahasiakan suatu pesan teks sederhana dengan mengubah susunan huruf nya
+menjadi longkap 5 dengan kunci nya yaitu a = f, b = g dan seterusnya.
+
+menu dekripsi digunakan untuk memecahakn suatu pesan teks sederhana dengan ketentuan bahwa pesan teks 
+tersebut menggunakan metode dengan kunci yang sama yaitu a = f, b = g dan seterusnya
