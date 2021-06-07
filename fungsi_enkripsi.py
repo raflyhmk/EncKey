@@ -1,6 +1,6 @@
 from tkinter import *
+from tkinter import messagebox
 import re
-
 
 abjad = ['a','b','c','d','e','f','g','h',
          'i','j','k','l','m','n','o','p',
@@ -32,21 +32,28 @@ def halaman_enkripsi():
     button_enkrip = Button(enkripsi, text="enkripsi", bg="#28527A", fg="#FAFAFA", command=submit_enkripsi, width=10)
     button_enkrip.place(x=230, y=270)
 
-
 def enkrip(form_input):
   hasil_enkrip=''
-  kalimat_check= re.compile('[@_!#$%^&*()<>?/\|}{~:0-9A-Z]')  
-  for karakter in form_input:
-    if(kalimat_check.search(form_input) == None): 
-      if karakter in abjad:
-        index_lama = abjad.index(karakter)
-        index_enkrip = (index_lama + 5 ) % len(abjad)
-        abjad_enkrip = abjad[index_enkrip]
-        hasil_enkrip += abjad_enkrip
+  kalimat_check= re.compile('[@_!#$%^&*()<>?/\|}{~:0-9A-Z]')
+  try:    
+      if len(form_input) > 400:
+          raise(NameError)
       else:
-         hasil_enkrip += ' '
-    else:
-      hasil_enkrip = "input tidak boleh huruf kapital/simbol/angka"
+          for karakter in form_input:
+              if(kalimat_check.search(form_input) != None):
+                  raise(ValueError)
+              else:
+                  if karakter in abjad:
+                      index_lama = abjad.index(karakter)
+                      index_enkrip = (index_lama + 5 ) % len(abjad)
+                      abjad_enkrip = abjad[index_enkrip]
+                      hasil_enkrip += abjad_enkrip
+                  else:
+                      hasil_enkrip += ' '   
+  except(ValueError):
+    messagebox.showwarning('warning', "hanya menerima input berupa huruf kecil")
+  except(NameError):
+    messagebox.showerror('error', "jumlah karakter input melebihi 400 karakter")  
   return hasil_enkrip
 
 def clear():

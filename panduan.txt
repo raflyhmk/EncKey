@@ -8,3 +8,5 @@ menjadi longkap 5 dengan kunci nya yaitu a = f, b = g dan seterusnya.
 
 menu dekripsi digunakan untuk memecahakn suatu pesan teks sederhana dengan ketentuan bahwa pesan teks 
 tersebut menggunakan metode dengan kunci yang sama yaitu a = f, b = g dan seterusnya
+
+NOTE: input yang dimasukkan tidak boleh berupa simbol,angka atau huruf kapital dan tidak boleh melebihi 400 karakter

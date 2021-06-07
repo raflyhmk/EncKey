@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 import re
 
 abjad = ['a','b','c','d','e','f','g','h',
@@ -34,17 +35,25 @@ def halaman_dekripsi():
 def dekrip(form_input):
   hasil_dekrip=''
   kalimat_check= re.compile('[@_!#$%^&*()<>?/\|}{~:0-9A-Z]')  
-  for karakter in form_input:
-    if(kalimat_check.search(form_input) == None): 
-      if karakter in abjad:
-        index_lama = abjad.index(karakter)
-        index_dekrip = (index_lama - 5 ) % len(abjad)
-        abjad_dekrip = abjad[index_dekrip]
-        hasil_dekrip += abjad_dekrip
+  try:    
+      if len(form_input) > 400:
+          raise(NameError)
       else:
-         hasil_dekrip += ' '
-    else:
-      hasil_dekrip = "input tidak boleh huruf kapital/simbol/angka"
+          for karakter in form_input:
+              if(kalimat_check.search(form_input) != None):
+                  raise(ValueError)
+              else:
+                  if karakter in abjad:
+                      index_lama = abjad.index(karakter)
+                      index_dekrip = (index_lama + 5 ) % len(abjad)
+                      abjad_dekrip = abjad[index_dekrip]
+                      hasil_dekrip += abjad_dekrip
+                  else:
+                      hasil_dekrip += ' '   
+  except(ValueError):
+    messagebox.showwarning('warning', "hanya menerima input berupa huruf kecil")
+  except(NameError):
+    messagebox.showerror('error', "jumlah karakter input melebihi 400 karakter")  
   return hasil_dekrip
 
 def clear():

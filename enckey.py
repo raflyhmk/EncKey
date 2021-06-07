@@ -1,11 +1,19 @@
 from tkinter import *
 from fungsi_enkripsi import enkrip, halaman_enkripsi
 from fungsi_dekripsi import dekrip, halaman_dekripsi
+from halaman_panduan import halaman_panduan
 
 
 mainframe = Tk()
 mainframe.title('EncKey')
 mainframe.geometry("400x300")
+
+toolbar = Menu(mainframe)  
+mainframe.config(menu=toolbar)
+
+opsi_menu = Menu(toolbar)  
+toolbar.add_cascade(label='help', menu=opsi_menu)  
+opsi_menu.add_command(label='panduan', command=halaman_panduan)
 
 judul = Label(mainframe, text="EncKey", font=("helvetica", 16, "italic"))
 judul.place(x=150, y=20)
