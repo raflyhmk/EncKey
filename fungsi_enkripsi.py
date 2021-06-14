@@ -8,7 +8,7 @@ abjad = ['a','b','c','d','e','f','g','h',
          'y','z']
 
 def halaman_enkripsi():
-    global form_input, hasil_kalimat, button_enkrip
+    global form_input, hasil_kalimat, button_enkrip, label_percobaan
     #buat frame
     enkripsi = Toplevel()
     enkripsi.geometry("800x330")
@@ -43,13 +43,13 @@ def enkrip(form_input):
               if(kalimat_check.search(form_input) != None):
                   raise(ValueError)
               else:
-                  if karakter in abjad:
+                  if karakter in abjad: 
                       index_lama = abjad.index(karakter)
                       index_enkrip = (index_lama + 5 ) % len(abjad)
                       abjad_enkrip = abjad[index_enkrip]
                       hasil_enkrip += abjad_enkrip
                   else:
-                      hasil_enkrip += ' '   
+                      hasil_enkrip += ' '
   except(ValueError):
     messagebox.showwarning('warning', "hanya menerima input berupa huruf kecil")
   except(NameError):
@@ -64,6 +64,9 @@ def submit_enkripsi():
     button_enkrip.config(state=DISABLED)
     hasil_enkripsi = enkrip(form_input.get(1.0, END))
     hasil_kalimat.insert(END, hasil_enkripsi)
+    
+
+    
 
 
 

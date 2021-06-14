@@ -45,7 +45,7 @@ def dekrip(form_input):
               else:
                   if karakter in abjad:
                       index_lama = abjad.index(karakter)
-                      index_dekrip = (index_lama + 5 ) % len(abjad)
+                      index_dekrip = (index_lama - 5 ) % len(abjad)
                       abjad_dekrip = abjad[index_dekrip]
                       hasil_dekrip += abjad_dekrip
                   else:
